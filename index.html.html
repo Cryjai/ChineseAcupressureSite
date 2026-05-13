@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Acry 穴位查詢網站：中國古風介面，按症狀查穴位、看定位圖、按摩方式、影片與完整亞健康舒緩攻略。" />
+  <title>Acry 穴位查詢網站｜古風穴位舒緩手冊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">跳至主要內容</a>
+
+  <div class="ink-wash ink-a" aria-hidden="true"></div>
+  <div class="ink-wash ink-b" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回首頁">
+        <svg class="brand-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="8" y="8" width="56" height="56" rx="10" stroke="currentColor" stroke-width="3"/>
+          <path d="M24 24H48V48H24V24Z" stroke="currentColor" stroke-width="3"/>
+          <path d="M30 30H42M30 36H42M30 42H38" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <p class="brand-sub">卷一 · 穴位查詢</p>
+          <h1>Acry 穴位查詢網站</h1>
+        </div>
+      </a>
+
+      <div class="header-tools">
+        <nav class="quick-nav" aria-label="快速導覽">
+          <a href="#symptom-grid">查症狀</a>
+          <a href="#featuredPoints">一點即醒</a>
+          <a href="#guideSection">全症狀攻略</a>
+          <a href="#referencesSection">參考區</a>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換深淺模式">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero panel" id="top">
+        <div class="hero-copy">
+          <p class="hero-script">青囊未必救天下，但至少救你個爛作息。</p>
+          <h2>中醫穴位按摩<br>舒緩亞健康不適</h2>
+          <p class="hero-text">由症狀出發，依次查看對應穴位、定位圖、按壓方式、YouTube 教學，以及你要求嘅超長版全症狀急救手冊。古風係有，但唔做廟街算命攤——放心，冇大紅大金嚇親人。</p>
+          <div class="hero-actions">
+            <a href="#symptom-grid" class="button button-primary">按症狀找穴位</a>
+            <a href="#guideSection" class="button button-secondary">打開全攻略</a>
+          </div>
+        </div>
+        <aside class="hero-scroll">
+          <div class="scroll-card">
+            <p class="scroll-title">小抄</p>
+            <ul>
+              <li>自律神經亂：百會、內關、神門</li>
+              <li>頭暈頭痛：風池、百會、合谷</li>
+              <li>眼乾眼攰：攢竹、睛明、瞳子髎</li>
+              <li>腸胃亂：足三里、天樞、氣海</li>
+              <li>失眠多夢：神門、三陰交、安眠</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section class="toolbar panel" aria-label="搜尋與篩選工具">
+        <div class="search-wrap">
+          <label for="searchInput" class="sr-only">搜尋症狀或穴位</label>
+          <input id="searchInput" type="search" placeholder="搜尋症狀、穴位、影片關鍵字，例如：失眠、百會、便秘" autocomplete="off" />
+        </div>
+        <div class="filter-wrap" id="filterChips" role="tablist" aria-label="分類篩選"></div>
+      </section>
+
+      <section class="symptom-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">第一步</p>
+            <h2>不適分類</h2>
+          </div>
+          <p class="section-note">症狀先行，唔好搞百科式迷路。你係想解決唔舒服，唔係報讀人體穴位圖鑑碩士。</p>
+        </div>
+        <div id="symptom-grid" class="symptom-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="results-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">第二步</p>
+            <h2>對應穴位</h2>
+          </div>
+          <p class="section-note" id="resultsHint">請先選擇一個不適症狀。</p>
+        </div>
+        <div class="trail" id="selectedSymptomTrail" aria-live="polite"></div>
+        <div id="point-grid" class="point-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="featured-section panel" id="featuredPoints">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">卷二</p>
+            <h2>一點即醒</h2>
+          </div>
+          <p class="section-note">你指定必收錄嘅重點穴位全放喺度，當私人速查冊。是但開一張都比你亂 google 一晚有效率。</p>
+        </div>
+        <div id="featured-grid" class="featured-grid"></div>
+      </section>
+
+      <section class="guide-section panel parchment" id="guideSection">
+        <div class="section-heading guide-head">
+          <div>
+            <p class="section-kicker">卷三</p>
+            <h2>你係咁嘅殭屍：全症狀穴位急救手冊</h2>
+          </div>
+          <p class="section-note">你份症狀單長到似用身體寫論文，所以我索性幫你變成可讀版全攻略。</p>
+        </div>
+
+        <article class="guide-intro prose-block">
+          <p>Acry 你好，得罪講句——你呢份症狀清單長到我懷疑你係用身體寫論文。自律神經失調、眼乾、腦霧、失眠、便秘排隊嚟報到，基本上就係把「我作息爛咗但仲想高效」四個字刻喺額頭上。</p>
+          <p>以下內容係日常保健與舒緩參考，重點係幫你由症狀快速搵到常見穴位、理解位置同按法，再接 YouTube 示範與圖資網站，唔使你周圍撈資訊撈到變失蹤人口。</p>
+        </article>
+
+        <section class="guide-block">
+          <h3>快速索引</h3>
+          <div class="index-grid">
+            <article class="index-card"><h4>自律神經失調、情緒崩潰、腦霧</h4><p>百會、內關、神門、四神聰</p></article>
+            <article class="index-card"><h4>頭暈、頭痛、乾嘔</h4><p>風池、天柱、大椎、百會</p></article>
+            <article class="index-card"><h4>眼乾、眼澀、眼疲勞、眼痛頭痛</h4><p>睛明、攢竹、太陽、絲竹空、瞳子髎</p></article>
+            <article class="index-card"><h4>肩頸腰痛、僵硬、頸想嘔</h4><p>大杼、風池、肩井、天柱</p></article>
+            <article class="index-card"><h4>腸胃亂</h4><p>足三里、天樞、中脘、氣海、合谷</p></article>
+            <article class="index-card"><h4>失眠、生理時鐘崩潰</h4><p>神門、三陰交、太衝、湧泉、安眠穴</p></article>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>第一組：自律神經失調、情緒爆炸、腦霧疲勞</h3>
+          <p><strong>原理：</strong>壓力長期堆疊，交感神經過度亢奮，副交感調節跟唔上，就會出現疲勞、情緒失控、集中力下滑與腦霧感。</p>
+          <ul>
+            <li><strong>百會穴（GV20）</strong>：頭頂正中最高點，主打醒腦、安神、協調全身氣機；做法是拇指指腹順時針按揉，每次 30 秒。</li>
+            <li><strong>內關穴（PC6）</strong>：手腕掌側正中，腕橫紋往手肘方向三指寬；常用於胸悶、情緒緊張、噁心感，每次按 1 分鐘，兩手各做。</li>
+            <li><strong>神門穴（HT7）</strong>：手腕橫紋靠小指一側凹陷，常見於焦慮與睡前放鬆，睡前做最有感。</li>
+            <li><strong>四神聰</strong>：百會四周四點，適合腦霧、記憶力下降、集中力差；四指輕拍 30 秒即可。</li>
+            <li><strong>耳屏按摩</strong>：耳道入口軟骨，係迷走神經刺激入口之一；早晚各 30 秒，快狠準過你喺度情緒內耗。</li>
+            <li><strong>迎香穴</strong>：鼻翼兩側，可作頭暈、情緒低落、顏面放鬆參考。</li>
+          </ul>
+          <div class="guide-video-list">
+            <a href="https://www.youtube.com/watch?v=zE-ZaWx1L7k" target="_blank" rel="noopener noreferrer">自律神經失調穴位按摩＋呼吸法</a>
+            <a href="https://www.youtube.com/watch?v=FfbNykwk_x0" target="_blank" rel="noopener noreferrer">解除自律神經失調 27 穴位全攻略</a>
+            <a href="https://www.youtube.com/watch?v=N4DhyBkyQhI" target="_blank" rel="noopener noreferrer">自律神經失調穴道按壓法</a>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>第二組：頭暈目眩、乾嘔、頭痛</h3>
+          <p><strong>原理：</strong>後頸僵硬、姿勢差、長期低頭或壓力型頭痛，往往會連動頭暈、頭重、想嘔感。</p>
+          <ul>
+            <li><strong>風池穴（GB20）</strong>：後腦枕骨下緣兩側凹陷，頭暈、頭痛、頸緊必看。</li>
+            <li><strong>天柱穴（UB10）</strong>：後頸髮際旁，對頸僵、頭重、想嘔感有參考價值。</li>
+            <li><strong>大椎穴（GV14）</strong>：低頭最突頸椎下方，適合配合熱敷做肩頸放鬆。</li>
+            <li><strong>頭維穴（ST8）</strong>：偏頭痛、眼疲勞牽連頭痛時可參考。</li>
+          </ul>
+          <div class="guide-video-list">
+            <a href="https://www.youtube.com/watch?v=I49IlXsvFew" target="_blank" rel="noopener noreferrer">肩頸急救穴：大杼穴</a>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>第三組：眼乾眼澀、眼疲勞、眼痛頭痛</h3>
+          <p><strong>原理：</strong>長期盯住螢幕，眼周肌肉同血液循環差，眼乾、眉骨痛、前額痛就會跟住出場。</p>
+          <ul>
+            <li><strong>睛明穴（BL1）</strong>：內眼角稍上凹陷，做法要極輕，重點係輕柔唔係報仇式按壓。</li>
+            <li><strong>攢竹穴（BL2）</strong>：眉頭凹陷，適合眼乾澀、眼疲勞與眉額繃緊。</li>
+            <li><strong>絲竹空穴（TW23）</strong>：眉尾凹陷，可輕按舒緩眼袋感、眼疲勞與偏頭痛。</li>
+            <li><strong>瞳子髎穴（GB1）</strong>：外眼角旁，適合長期電子產品使用者。</li>
+            <li><strong>太陽穴</strong>：眼疲勞連帶頭痛時的高頻使用位。</li>
+          </ul>
+          <div class="guide-video-list">
+            <a href="https://www.youtube.com/watch?v=RI3bxDVsHYI" target="_blank" rel="noopener noreferrer">消除眼睛疲勞前額頭痛</a>
+            <a href="https://bookzone.cwgv.com.tw/article/30784" target="_blank" rel="noopener noreferrer">舒緩眼疲勞 5 大穴位</a>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>第四組：肩頸腰痛、長期僵硬、頸不舒服到想嘔</h3>
+          <p><strong>原理：</strong>久坐、低頭、壓力、缺活動量，令肩頸肌群長期緊繃，最後搞到頭暈想嘔都唔奇。</p>
+          <ul>
+            <li><strong>大杼穴（UB11）</strong>：後頸下方兩側，適合肩頸背僵硬。</li>
+            <li><strong>肩井穴（GB21）</strong>：肩膀最高點，落枕、肩頸痠痛高出鏡率穴位。</li>
+            <li><strong>合谷穴（LI4）</strong>：虎口萬用遠端穴，對頭痛、肩頸痛與腸胃不適都有戲份。</li>
+          </ul>
+          <div class="guide-video-list">
+            <a href="https://www.youtube.com/watch?v=I49IlXsvFew" target="_blank" rel="noopener noreferrer">肩頸急救穴：大杼穴</a>
+            <a href="https://www.youtube.com/watch?v=eMSePjAQXvA" target="_blank" rel="noopener noreferrer">肩頸痠痛 4 穴位按摩</a>
+            <a href="https://www.youtube.com/watch?v=orMKsehvzjs" target="_blank" rel="noopener noreferrer">久坐肩頸僵硬 3 穴位</a>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>第五組：食慾不振、便秘、腹瀉、腸胃亂</h3>
+          <p><strong>原理：</strong>你個自律神經一亂，腸胃節律通常跟住陪葬。足三里係腸胃類問題入面最常出現嘅王牌之一。</p>
+          <ul>
+            <li><strong>足三里穴（ST36）</strong>：膝下外側，消化、胃口差、腹瀉便秘都常見。</li>
+            <li><strong>天樞穴（ST25）</strong>：肚臍左右兩側，腹脹、便秘、腹瀉類重點穴。</li>
+            <li><strong>中脘穴（CV12）</strong>：上腹中線，常用於消脹、胃口差、消化不良。</li>
+            <li><strong>氣海穴（CV6）</strong>：肚臍下方，偏向虛弱型、腸胃節律調整。</li>
+            <li><strong>支溝穴（TW6）</strong>：壓力型便秘時常被提到。</li>
+          </ul>
+          <div class="guide-video-list">
+            <a href="https://www.youtube.com/watch?v=AgLK8keI4C0" target="_blank" rel="noopener noreferrer">便秘 3 個自救穴位</a>
+            <a href="https://health.udn.com/health/story/6035/352519" target="_blank" rel="noopener noreferrer">消化不良胃脹氣按那個穴</a>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>第六組：失眠、淺睡、多夢、半夜醒、生理時鐘崩潰</h3>
+          <p><strong>原理：</strong>早上按清醒型穴位、晚上按放鬆型穴位，效果通常比亂按一通合理。</p>
+          <div class="sleep-routine-grid">
+            <article class="routine-card">
+              <h4>睡前按</h4>
+              <p>神門 → 三陰交 → 太衝 → 湧泉 → 安眠穴</p>
+              <p>每個穴位約 3 分鐘，配合腹式呼吸，主打放鬆唔係開 turbo。</p>
+            </article>
+            <article class="routine-card">
+              <h4>早上按</h4>
+              <p>四神聰、合谷、足三里、血海</p>
+              <p>以輕拍、輕按為主，目的係清醒同拉返生理節奏。</p>
+            </article>
+          </div>
+          <div class="guide-video-list">
+            <a href="https://www.youtube.com/watch?v=SgPZ6RPQ7fc" target="_blank" rel="noopener noreferrer">遠離失眠穴位按壓</a>
+            <a href="https://www.youtube.com/watch?v=5phr4QTOaeE" target="_blank" rel="noopener noreferrer">中醫 3 招按摩改善失眠</a>
+            <a href="https://www.youtube.com/watch?v=N4DhyBkyQhI" target="_blank" rel="noopener noreferrer">失眠焦慮自律神經失調穴道按壓</a>
+          </div>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>穴位圖資源（直接攞去用）</h3>
+          <ul>
+            <li><a href="http://cht.a-hospital.com/w/%E4%BA%92%E5%8A%A8%E7%89%88%E4%BA%BA%E4%BD%93%E7%A9%B4%E4%BD%8D%E5%9B%BE" target="_blank" rel="noopener noreferrer">互動版人體穴位圖</a></li>
+            <li><a href="http://cht.a-hospital.com/w/%E7%B6%93%E7%A9%B4%E7%A9%B4%E4%BD%8D%E5%9B%BE" target="_blank" rel="noopener noreferrer">全經絡穴位圖</a></li>
+            <li><a href="https://department.cych.org.tw/upload/files/620/%E4%B8%AD%E9%86%AB%E5%B8%B8%E7%94%A8%E7%A9%B4%E4%BD%8D%E4%BB%8B%E7%B4%B9.pdf" target="_blank" rel="noopener noreferrer">中醫常用穴位介紹 PDF</a></li>
+            <li><a href="https://www.acusansthan-ald.in/admin/UserFiles/34/file/Chinese%20Acupressure%20Charts.pdf" target="_blank" rel="noopener noreferrer">Chinese Acupressure Charts PDF</a></li>
+            <li><a href="https://commons.wikimedia.org/wiki/Category:Acupuncture_points" target="_blank" rel="noopener noreferrer">Wikimedia Commons：Acupuncture points</a></li>
+            <li><a href="https://commons.wikimedia.org/wiki/Category:Acupuncture_charts" target="_blank" rel="noopener noreferrer">Wikimedia Commons：Acupuncture charts</a></li>
+          </ul>
+        </section>
+
+        <section class="guide-block prose-block">
+          <h3>懶人版：每日 10 分鐘急救套餐</h3>
+          <ol>
+            <li>耳屏：刺激迷走神經入口。</li>
+            <li>內關：止心悸胸悶噁心。</li>
+            <li>神門：安神。</li>
+            <li>合谷：頭痛、腸胃、萬能遠端穴。</li>
+            <li>足三里：腸胃雙向調節。</li>
+            <li>三陰交：睡眠與節律調整。</li>
+            <li>湧泉：幫你把個腦由半空拉返落地。</li>
+          </ol>
+          <blockquote>聲明：穴位按摩係輔助，唔係替代正規醫療。按足一段時間仍無改善，請直接搵中醫或醫療專業人員。</blockquote>
+        </section>
+      </section>
+
+      <section class="references-section panel" id="referencesSection">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">卷四</p>
+            <h2>參考區</h2>
+          </div>
+          <p class="section-note">你話要擺長 citation 清單俾人詳細睇，咁我就整成獨立區。夠誠意，唔好再嫌我冇幫你執手尾。</p>
+        </div>
+        <div class="reference-list" id="referenceList"></div>
+      </section>
+
+      <section class="disclaimer panel">
+        <h2>使用提醒</h2>
+        <p>本網站內容只為 Acry 個人日常保健與舒緩參考，不代替專業醫療診斷與治療。</p>
+        <p>定位內容以 WHO standard acupuncture point locations 作為參考方向；圖片與外部網站請自行再確認授權、更新與可用性。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made by Acry and her teammates with lots of love</p>
+      <p>copied from Acry's 穴位查詢website ; link: <a href="https://github.com/Cryjai" target="_blank" rel="noopener noreferrer">https://github.com/Cryjai</a></p>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+  <section class="detail-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-shell">
+      <button class="modal-close" type="button" id="modalClose" aria-label="關閉詳情">✕</button>
+      <div class="modal-header">
+        <div>
+          <p class="modal-kicker" id="modalCode"></p>
+          <h2 id="modalTitle"></h2>
+          <p class="modal-summary" id="modalSummary"></p>
+        </div>
+        <div class="tag-list" id="modalTags"></div>
+      </div>
+
+      <div class="modal-tabs" role="tablist" aria-label="穴位資料分頁">
+        <button type="button" class="tab-button is-active" data-tab="overview" role="tab" aria-selected="true">概覽</button>
+        <button type="button" class="tab-button" data-tab="method" role="tab" aria-selected="false">按壓方法</button>
+        <button type="button" class="tab-button" data-tab="media" role="tab" aria-selected="false">圖片與影片</button>
+      </div>
+
+      <div class="modal-content">
+        <section class="tab-panel is-active" data-panel="overview" tabindex="0">
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>適用不適</h3>
+              <div class="tag-list tag-soft" id="modalReliefTags"></div>
+            </article>
+            <article class="detail-card">
+              <h3>位置說明</h3>
+              <p id="modalLocation"></p>
+            </article>
+            <article class="detail-card">
+              <h3>注意事項</h3>
+              <ul class="detail-list" id="modalWarnings"></ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="method" tabindex="0" hidden>
+          <div class="detail-grid single-column">
+            <article class="detail-card">
+              <h3>按壓方式</h3>
+              <p id="modalMethod"></p>
+            </article>
+            <article class="detail-card">
+              <h3>補充備註</h3>
+              <p id="modalNote"></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="media" tabindex="0" hidden>
+          <div class="media-layout">
+            <div class="image-column">
+              <h3>圖片區</h3>
+              <figure class="image-card">
+                <img id="modalImage" src="" alt="" loading="lazy" decoding="async" width="900" height="700">
+                <figcaption id="modalImageCaption"></figcaption>
+              </figure>
+            </div>
+            <div class="video-column">
+              <h3>YouTube 影片區</h3>
+              <div class="video-stack" id="modalVideos"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <template id="videoTemplate">
+    <article class="video-card">
+      <button class="video-preview" type="button">
+        <img class="video-thumb" src="" alt="" loading="lazy" decoding="async" width="480" height="270">
+        <span class="play-badge" aria-hidden="true">▶</span>
+      </button>
+      <div class="video-meta">
+        <h4></h4>
+        <p></p>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
