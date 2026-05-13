@@ -548,6 +548,7 @@ const REFERENCES = [
   ['[42] 壓力大到想逃跑？按這穴位就對了', 'https://www.youtube.com/watch?v=qJ0oqmykcHM'],
   ['[43] 穴位全集', 'http://www.iaees.org/publications/software/acudata/acupoints.asp'],
   ['[44] 壓力大又熬夜？中醫教你調回自律神經', 'https://www.youtube.com/watch?v=7Clq64g-Xxc']
+  ['[45] 經痛穴位按摩參考', 'https://example.com/article']
 ];
 
 const featuredOrder = ['百會', '風池', '神門', '內關', '足三里', '三陰交', '合谷', '曲池', '安眠', '委中', '攢竹', '睛明', '魚腰', '承泣', '瞳子髎', '天樞', '氣海', '關元', '支溝', '太衝'];
