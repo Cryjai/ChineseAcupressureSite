@@ -172,6 +172,13 @@ const DATA = {
       videos: [
         { id: 'AgLK8keI4C0', title: '便秘自救穴位', desc: '足三里常與腸胃點一起出現。' },
         { id: 'RI3bxDVsHYI', title: '身體舒緩穴位示範', desc: '可作按摩節奏參考。' }
+  {
+    id: 'pi-xu-bili-1',
+    source: 'bilibili',
+    title: '脾虚湿重 揉开了 才知道藏了多少湿',
+    desc: 'B站中醫祛濕教學。',
+    url: 'https://b23.tv/9LdUeDl'
+  }
       ]
     },
     '三陰交': {
