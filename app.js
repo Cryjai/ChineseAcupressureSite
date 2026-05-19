@@ -866,6 +866,13 @@ function switchTab(tabName) {
   });
 }
 
+function init() {
+  renderSymptomCards();
+  renderFeatured();
+  bindEvents();
+  renderReferences();
+}
+
 init();
 
 function renderReferences() {
