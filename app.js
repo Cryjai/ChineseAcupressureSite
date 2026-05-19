@@ -565,7 +565,7 @@ const REFERENCES = [
   ['[41] Chinese meridians Wikimedia Commons', 'https://commons.wikimedia.org/wiki/File:Chinese_meridians.JPG'],
   ['[42] 壓力大到想逃跑？按這穴位就對了', 'https://www.youtube.com/watch?v=qJ0oqmykcHM'],
   ['[43] 穴位全集', 'http://www.iaees.org/publications/software/acudata/acupoints.asp'],
-  ['[44] 壓力大又熬夜？中醫教你調回自律神經', 'https://www.youtube.com/watch?v=7Clq64g-Xxc']
+  ['[44] 壓力大又熬夜？中醫教你調回自律神經', 'https://www.youtube.com/watch?v=7Clq64g-Xxc'],
   ['[45] 經痛穴位按摩參考', 'https://example.com/article']
 ];
 
