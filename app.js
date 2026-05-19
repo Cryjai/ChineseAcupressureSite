@@ -581,7 +581,6 @@ function init() {
   renderSymptoms();
   renderFeatured();
   renderPoints();
-  renderReferences();
   bindEvents();
 }
 
