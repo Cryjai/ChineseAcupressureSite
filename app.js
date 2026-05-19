@@ -873,8 +873,6 @@ function init() {
   renderReferences();
 }
 
-init();
-
 function renderReferences() {
   if (!els.referenceList) return;
   els.referenceList.innerHTML = REFERENCES.map(([title, url]) => `
